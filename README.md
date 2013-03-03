@@ -28,3 +28,10 @@ CREATE DATABASE twitter IF NOT EXISTS;
 
 Apply the schema from the schema.sql file.
 
+Features:
+
+Login  http://localhost/twitter/login
+Register http://localhost/twitter/register
+Feed http://localhost/twitter/feed?userId=1
+Post plain text.
+Click follow to follow.
