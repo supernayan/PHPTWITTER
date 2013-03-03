@@ -8,7 +8,8 @@
   <body>
       <div class="container">
         <h1>Status for user @<?= $_GET["userId"]; ?></h1>
-        <form>
+        <form method="post" action="follow">
+          <input name="followerUserId" type="hidden" value="<?= $_GET["userId"]?>">
           <button name="follow" type="submit" class="btn btn-success">Follow</button>                    
         </form>
         <form action="post" method="post">
@@ -25,7 +26,11 @@
           if (mysqli_connect_errno($con)){
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
           }else{
-            if(isset($_COOKIE['userId'])){    
+            if(isset($_COOKIE['userId'])){ 
+              $resultFollowers = mysqli_query($con,"SELECT count(*) as total FROM follower WHERE user_id = $_GET[userId]");              
+              $data = mysqli_fetch_array($resultFollowers);
+              $num_followers = $data['total'];   
+              echo $num_followers . " follower". ($num_followers==1 ? "" : "s");
               $result = mysqli_query($con,"SELECT * FROM user_post WHERE user_id = $_GET[userId] ORDER BY id DESC");
               if($result){
                 while($row = mysqli_fetch_array($result)){

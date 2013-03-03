@@ -4,19 +4,11 @@
   if (mysqli_connect_errno($con)){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }else{
-    if(isset($_COOKIE['userId'])){    
-      $result = mysqli_query($con,"SELECT count(*) FROM follower WHERE user_id = $_GET[userId] ORDER BY id DESC");
-      $num_followers = mysql_fetch_assoc($result);
-      $num_followers = $num_followers[''];
-      if($result){
-        while($row = mysqli_fetch_array($result)){
-          echo "<li>@".$row['user_id'] . " " . $row['body']."</li>";
-        }
-      }else{
-        echo "This user has not posted anything yet.";
-      }
+    if(isset($_COOKIE['userId']) && isset($_POST['followerUserId'])){    
+      $result = mysqli_query($con,"INSERT INTO follower (follower_user_id, user_id) VALUES('$_COOKIE[userId]', '$_POST[followerUserId]')");
+      header('Location: /twitter/feed?userId='.$_POST['followerUserId']);
     }else{
-      echo "Not authorized or status not provided.";
+      echo "Not authorized or follower id not provided.";
     }
   }
 
