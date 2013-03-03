@@ -1,4 +1,4 @@
-[TODOs]
+##[TODOs]
 
 *Add client side validation using a bootstrap or jQuery plugin.
 *Add additional server side validation.
@@ -13,14 +13,14 @@
 *Move config out.
 
 
-[Recommendations]
+##[Recommendations]
 
 *Tell candidate to have a LAMP stack up and running.
 *Provide a private repository to commit to.
 *The Zend dmg takes a while to download if it ever does.
 
 
-[Getting Started]
+##[Getting Started]
 
 Database info
 
@@ -32,7 +32,7 @@ CREATE DATABASE twitter IF NOT EXISTS;
 *Apply the schema from the schema.sql file.
 
 
-[Features]
+##[Features]
 
 *Login  http://localhost/twitter/login
 *Register http://localhost/twitter/register
