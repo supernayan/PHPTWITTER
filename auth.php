@@ -14,7 +14,7 @@
 				$result = mysqli_query($con,"SELECT id FROM user WHERE email = '$_POST[email]' AND password = '$_POST[password]'");
 				$row = mysqli_fetch_array($result);
 				setcookie("userId", $row['id']);
-				header('Location: /twitter/feed?userId='.$row[id]);	
+				header('Location: /twitter/feed?userId='.$row['id']);	
 			}else{
 				echo "Invalid authorization type";
 			}

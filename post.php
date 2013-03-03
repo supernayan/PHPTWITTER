@@ -6,7 +6,7 @@
 	}else{
 		if(isset($_COOKIE['userId']) && isset($_POST['status']) ){		
 			mysqli_query($con,"INSERT INTO user_post (user_id, body) VALUES($_COOKIE[userId], '$_POST[status]')");
-			header('Location: /twitter/feed');	
+			header('Location: /twitter/feed?userId='.$_COOKIE[userId]);	
 		}else{
 			echo "Not authorized or status not provided.";
 		}

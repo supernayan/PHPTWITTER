@@ -8,6 +8,9 @@ Port to Zend Framework or Code Igniter. MVC is easier to read / organize.
 Pagination on posts.
 AJAXify updates instead of page refresh.
 Create RESTful API.
+Move common styles from login / register to external css.
+Minify everything.
+Move config out.
 
 Recommendations:
 
